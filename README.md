@@ -4,8 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-`MotifFindR` is an R project to identify Transcription Factor Binding Site through motif analysis
-and was created exclusively for a internal renal cancer research project, 2023-2024.
+`MotifFindR` is an R project used to identify Transcription Factor Binding Sites through motif analysis and was created exclusively for an internal renal cancer research project, 2023-2024.
 
 ## Installation
 
