@@ -1,5 +1,5 @@
 
-# TFBindR
+# MotifFindR
 
 <!-- badges: start -->
 <!-- badges: end -->
