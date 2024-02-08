@@ -1,0 +1,16 @@
+Package: TFBindR
+Type: Package
+Title: Motif Analysis to Identify Putative Transcription Factor (TF) Binding Sites 
+Version: 0.1.0
+Authors@R: c(person(given = "Timothy A.",
+                  family = "Myers",
+                  role = c("aut", "cre"),
+                  email = "myersta@mail.nih.gov",
+                  comment = c(ORCID = "0000-0001-8127-3446")))
+Maintainer: Timothy A. Myers <myersta@mail.nih.gov>
+Description: TFBindR: Transcription Factor Binding Site Identification through Motif Analysis
+    is a specialized R package developed exclusively for Tim Winter's renal cancer research
+    project of 2023-2024 at NIH/NCI/DCEG/LGS.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
