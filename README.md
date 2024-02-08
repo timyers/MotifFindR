@@ -4,7 +4,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of TFBindR is to ...
+`MotifFindR` is an R project to identify Transcription Factor Binding Site through motif analysis
+and was created exclusively for a internal renal cancer research project, 2023-2024.
 
 ## Installation
 
