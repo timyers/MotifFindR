@@ -14,3 +14,5 @@ Description: TFBindR: Transcription Factor Binding Site Identification through M
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/timyers/TFBindR
+BugReports: https://github.com/timyers/TFBindR/issues
