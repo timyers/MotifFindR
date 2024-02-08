@@ -19,7 +19,6 @@ You can install the development version of TFBindR like so:
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-library(TFBindR)
 ## basic example code
 ```
 
