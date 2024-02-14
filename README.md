@@ -15,7 +15,6 @@
 
 ``` 
 git clone https://github.com/timyers/MotifFindR
-
 ```
 
 ## Example
