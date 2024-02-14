@@ -8,10 +8,14 @@
 
 ## Installation
 
-You can install the development version of TFBindR like so:
+- **Install Git:** If you haven't already, download and install Git from from [git-scm.com](https://git-scm.com/).
+- **Open a Terminal or Command Prompt:** Access your command line interface. On Windows, you can use Command Prompt or PowerShell. On macOS or Linux, open the Terminal.
+- **Navigate to the Directory:** Use the `cd` command to navigate to the directory where you want to clone the repository.
+- **Clone the Repository:** Use the git clone command followed by the URL of the repository.  See below:
 
-``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+``` 
+git clone https://github.com/timyers/MotifFindR
+
 ```
 
 ## Example
