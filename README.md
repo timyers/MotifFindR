@@ -16,9 +16,9 @@
 ``` 
 git clone https://github.com/timyers/MotifFindR
 ```
-- `MotifFindR` uses the `R` package [`renv`](https://rstudio.github.io/renv/index.html) to create a reproducible environment.  It records the exact package versions `MotifFindR` depends on and ensures those exact versions get installed.
+- `MotifFindR` uses the `R` package [`renv`](https://rstudio.github.io/renv/index.html) to create a reproducible environment.  It records the exact package versions `MotifFindR` depends on in a lockfile, *renv.lock*, and ensures those exact versions get installed.
 
-- After installation, when you open the project `renv` should automatically bootstrap iteself, downloading and installing the appropriate version of `renv`.  It should also ask if you want to download and install all the packages `MotifFindR` needs by running `renv::restore()`.
+- After installation, when you open the project `renv` should automatically bootstrap itself, downloading and installing the appropriate version of `renv`.  It should also ask if you want to download and install all the packages `MotifFindR` needs by running `renv::restore()`.
 
 ## Example
 
