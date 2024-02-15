@@ -1,0 +1,12 @@
+# Purpose: read in a text file in the relative directory "data-raw",
+# convert it to an R data file (.rda), and save.
+
+
+# Reading a tab-separated file into a data frame
+my_data <- read.delim("data-raw/rcc_snps.txt", header = FALSE)
+
+
+# Save "my_data_ object to a file
+save(my_data, file = "data-raw/rcc_snps.rda")
+
+#
