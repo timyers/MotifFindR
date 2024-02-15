@@ -207,7 +207,7 @@ gtsave(gt_rs6466949_table, "rcc_rs6466949.html")
 current_time <- format(Sys.time(), "%Y%m%d_%H%M%S")
 
 # Create a unique file name using the current date and time
-file_name <- paste0("SessionInfo_", current_time, ".txt")
+file_name <- paste0("data/SessionInfo_", current_time, ".txt")
 
 # Capture the output of sessionInfo() and write it to a file
 writeLines(capture.output(sessionInfo()), file_name)
