@@ -1,7 +1,7 @@
 source("renv/activate.R")
 
-if (file.exists("rcc_snps.rda")) {
-  load("rcc_snps.rda")
+if (file.exists("data-raw/rcc_snps.txt")) {
+  rcc.snps <- readLines("data-raw/rcc_snps.txt", warn = FALSE)
 } else {
-  message("The file 'rcc_snps.rda' does not exist.")
+  message("The file 'data-raw/rcc_snps.txt' does not exist.")
 }
