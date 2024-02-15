@@ -83,7 +83,7 @@ combined_mb <- c("HOCOMOCOv10", "HOCOMOCOv11-core-A", "HOCOMOCOv11-core-B", "HOC
                  "HOCOMOCOv11-secondary-A", "HOCOMOCOv11-secondary-B", "HOCOMOCOv11-secondary-C", 
                  "HOCOMOCOv11-secondary-D", "JASPAR_CORE", "jaspar2022", "SwissRegulon", 
                  "cisbp_1.02", "hPDI", "stamlab", "jolma2013", "UniPROBE"
-                )
+                 )
 
 # 3.1.3) Filter 'MotifDb' by organism, 'Hsapiens'
 hsapiens_MotifDb <- filter_motif_by_organisms(MotifDb, "Hsapiens")
@@ -97,7 +97,7 @@ results <- motifbreakR(snpList = snps.mb,
                                         dataSource %in% combined_mb
                        ),
                        threshold = 1e-4,
-                       method = "ic",
+                       method = "default",
                        bkg = c(A=0.25, C=0.25, G=0.25, T=0.25),
                        BPPARAM = BiocParallel::SerialParam()
                       )
