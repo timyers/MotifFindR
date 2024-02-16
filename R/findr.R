@@ -195,7 +195,7 @@ gt_table <- gt_table |>
 
 # Save to HTML file
 # 1)
-gtsave(gt_table, "rcc_tfbs.html")
+gtsave(gt_table, "data/data-out/rcc_tfbs.html")
 # 2)
 gtsave(gt_rs6466949_table, "rcc_rs6466949.html")
 
