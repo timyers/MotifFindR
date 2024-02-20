@@ -117,7 +117,7 @@ p_results
 
 data("motifbreakR_motif")
 
-# Find motifs predicted to be disrupted by rsID's in 'snp.mb'
+# Find motifs predicted to be disrupted by rsID's in 'snps.mb'
 # using MotifList object 'motifbreakR_motif'
 results <- motifbreakR(snpList = snps.mb, 
                        filterp = TRUE,
@@ -127,6 +127,23 @@ results <- motifbreakR(snpList = snps.mb,
                        bkg = c(A=0.25, C=0.25, G=0.25, T=0.25),
                        BPPARAM = BiocParallel::SerialParam()
                       )
+
+# 3.1.5) 'encodemotif' is a MotifDb object containing motif information 
+# from the known and discovered motifs for ENCODE TF ChIP-seq datasets.
+
+data("encodemotif")
+
+# Find motifs predicted to be disrupted by rsID's in 'snps.mb'
+# using MotifList object 'encodemotif'
+results <- motifbreakR(snpList = snps.mb, 
+                       filterp = TRUE,
+                       pwmList = encodemotif,
+                       threshold = 1e-4,
+                       method = "default",
+                       bkg = c(A=0.25, C=0.25, G=0.25, T=0.25),
+                       BPPARAM = BiocParallel::SerialParam()
+                      )
+
 
 # Subset results by rsID
 rs6466949 <- results[results$SNP_id == "rs6466949"]
@@ -158,7 +175,7 @@ dt_rs6466949 <- as.data.table(rs6466949)
 # Save 'dt_p_results' to CSV file using the `fwrite` function
 # from the `data.table` package
 
-fwrite(dt_p_results, "data/data-out/rc_tfbs_combined_mb.csv")
+fwrite(dt_p_results, "data/data-out/rcc_tfbs_encodemotif.csv")
 
 ## Create publication ready table of 'dt_p_results' using 'gt' package
 
@@ -175,7 +192,8 @@ gt_rs6466949_table <- dt_rs6466949 |>
 gt_table <- gt_table |>
   tab_header(
     title = md("**Renal Cell Carcinoma**"),
-    subtitle = "TF Motifs from multiple motif databases"
+    # subtitle = "TF Motifs from multiple motif databases"
+    subtitle = "Known TF Motifs from Encode"
   )
 
 # Format Columns
@@ -199,7 +217,7 @@ gt_table <- gt_table |>
 
 # Save to HTML file
 # 1)
-gtsave(gt_table, "data/data-out/rcc_tfbs_combined_mb.html")
+gtsave(gt_table, "data/data-out/rcc_tfbs_encodemotif.html")
 # 2)
 gtsave(gt_rs6466949_table, "rcc_rs6466949.html")
 
