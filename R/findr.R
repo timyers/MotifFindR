@@ -175,7 +175,7 @@ gt_rs6466949_table <- dt_rs6466949 |>
 gt_table <- gt_table |>
   tab_header(
     title = md("**Renal Cell Carcinoma**"),
-    subtitle = "TF Motifs"
+    subtitle = "TF Motifs from multiple motif databases"
   )
 
 # Format Columns
