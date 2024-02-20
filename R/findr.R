@@ -155,7 +155,12 @@ dt_p_results <- as.data.table(p_results)
 # 2)
 dt_rs6466949 <- as.data.table(rs6466949)
 
-## Create publication ready table of 'results' using 'gt' package
+# Save 'dt_p_results' to CSV file using the `fwrite` function
+# from the `data.table` package
+
+fwrite(dt_p_results, "data/data-out/rc_tfbs_combined_mb.csv")
+
+## Create publication ready table of 'dt_p_results' using 'gt' package
 
 # Create publication-ready table
 # 1)
