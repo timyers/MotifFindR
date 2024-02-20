@@ -111,7 +111,7 @@ p_results <- calculatePvalue(results, granularity = 1e-6)
 p_results
 
 
-# 3.1.3) 'motifbreakR_motif' is a MotifDb object containing motif information 
+# 3.1.4) 'motifbreakR_motif' is a MotifDb object containing motif information 
 # from the motif databases of hocomoco, homer, factorbook, and encodemotif.
 # (These can also be loaded individually as.)
 
@@ -185,7 +185,6 @@ gt_table <- gt_table |>
     decimals = 4
   )
 
-
 ## Styling Options
 
 # Formatting Headers
@@ -200,7 +199,7 @@ gt_table <- gt_table |>
 
 # Save to HTML file
 # 1)
-gtsave(gt_table, "data/data-out/rcc_tfbs.html")
+gtsave(gt_table, "data/data-out/rcc_tfbs_combined_mb.html")
 # 2)
 gtsave(gt_rs6466949_table, "rcc_rs6466949.html")
 
