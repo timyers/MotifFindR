@@ -66,7 +66,9 @@ filter_motif_by_organisms <- function(motif_list, organisms) {
 ######### Begin Script #########
 
 # 1) Input rsID's
-rcc.snps <- c('rs6466948', 'rs6466949')
+  # SNPs below are used for testing purpose. The full set of 39 SNPs
+  # are automatically read into variable rcc.snps when project is loaded.
+  # rcc.snps <- c('rs6466948', 'rs6466949')
 
 
 # 2) Retrieve info about rsID's
