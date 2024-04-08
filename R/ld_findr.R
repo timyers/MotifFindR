@@ -24,7 +24,6 @@ ld_snps <- read.table("data/data-out/ld/combined_query_snp_list_grch38.txt",
                       sep = "\t",
                       row.names = NULL)
 
-# 3) Filter SNPs with R^2 greater than 0.9
+# 3) Filter SNPs by R^2
 high_ld_snps <- subset(ld_snps, R2 >=0.9)
-
 
