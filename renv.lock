@@ -532,6 +532,17 @@
       ],
       "Hash": "8d6e9f4dce69aec9c588c27ae79be08e"
     },
+    "LDlinkR": {
+      "Package": "LDlinkR",
+      "Version": "1.3.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "httr",
+        "utils"
+      ],
+      "Hash": "9c0980bf6d76513a99de01e62af406f8"
+    },
     "MASS": {
       "Package": "MASS",
       "Version": "7.3-60.0.1",
