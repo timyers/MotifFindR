@@ -118,7 +118,7 @@ p_results
 
 # 3.1.4) 'motifbreakR_motif' is a MotifDb object containing motif information 
 # from the motif databases of hocomoco, homer, factorbook, and encodemotif.
-# (These can also be loaded individually as.)
+# (These can also be loaded individually.)
 
 data("motifbreakR_motif")
 
