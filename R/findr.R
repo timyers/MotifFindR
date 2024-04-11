@@ -24,6 +24,9 @@ library(data.table)
 library(Cairo)
 library(gt)
 
+
+# 0) Load function below
+
 ############################################################
 ##### Start Function to Filter MotifList by organisms  #####
 
