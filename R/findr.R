@@ -73,6 +73,26 @@ filter_motif_by_organisms <- function(motif_list, organisms) {
   # are automatically read into variable rcc.snps when project is loaded.
   # rcc.snps <- c('rs6466948', 'rs6466949')
 
+# Or
+
+# 1.1) Read in new set of rsID's in high LD with full set of 39 SNPs.
+# SNPs in high LD found using `LDlinkR::LDproxy_batch` with population CEU,
+# genome build grch38, and window size of 10000 bp.
+
+# Read in CSV file with 13 columns
+rcc.snps <- read.csv(file = "data/data-out/ld/high_ld_snps_query39_win-10k_20240411_082835.csv",
+                     header = TRUE)
+
+# Create a character vector from the SNPs in high LD with original
+# list of 39 SNPs that are listed in column `RS_Number`.  This will
+# be the input for step 2 below.
+
+# Create character vector
+rcc.snps <- as.character(rcc.snps$RS_Number)
+
+# Clean up - remove elements that are not rsID numbers
+rcc.snps <- rcc.snps[grep("^rs[0-9]+$", rcc.snps)]
+
 
 # 2) Retrieve info about rsID's
 snps.mb <- snps.from.rsid(rsid = rcc.snps,
@@ -171,7 +191,7 @@ plotMB(results = results, rsid = "rs6466948", effect = "weak", altAllele = "A")
 ##############################################
 ############ Create Results Table ############
 
-# Turn GRanges 'results' object into data.table
+# Turn GRanges 'results' with p-values object into data.table
 # 1)
 dt_p_results <- as.data.table(p_results)
 # 2)
