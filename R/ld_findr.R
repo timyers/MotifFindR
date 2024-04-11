@@ -1,9 +1,15 @@
 # Purpose:  Identify SNPs in high linkage disequilibrium (LD)
 # with affect target genes.
 
-install.packages("LDlinkR")
-
-library(LDlinkR)
+# Check if the `LDlinkR` is installed, if not, install and load
+if (!require("LDlinkR", character.only = TRUE)) {
+  # Install the package if it's not installed
+  install.packages(LDlinkR)
+  # Load the package after installing
+  library(LDlinkR)
+} else {
+  message(sprintf("Package '%s' is already installed.", "LDlinkR"))
+}
 
 # 1) Find SNPs in high LD with affect target genes
 # Note: "rcc.snps" variable contains full list of 39 SNPs
