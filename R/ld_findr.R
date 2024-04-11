@@ -8,7 +8,8 @@ if (!require("LDlinkR", character.only = TRUE)) {
   # Load the package after installing
   library(LDlinkR)
 } else {
-  message(sprintf("Package '%s' is already installed.", "LDlinkR"))
+  library(LDlinkR)
+  message(sprintf("Package '%s' is installed and loaded.", "LDlinkR"))
 }
 
 # 1) Find SNPs in high LD with affect target genes
