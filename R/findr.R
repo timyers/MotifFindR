@@ -201,6 +201,9 @@ dt_rs6466949 <- as.data.table(rs6466949)
 # from the `data.table` package
 
 fwrite(dt_p_results, "data/data-out/rcc_tfbs_encodemotif.csv")
+# or
+fwrite(dt_p_results, 
+       "data/data-out/ld/rcc_tfbs_encodemotif_high-ld_r2-0.9_win-10K_20240411_155434.csv")
 
 ## Create publication ready table of 'dt_p_results' using 'gt' package
 
