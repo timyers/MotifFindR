@@ -14,11 +14,13 @@ if (!require("LDlinkR", character.only = TRUE)) {
 
 # 1) Find SNPs in high LD with affect target genes
 # Note: "rcc.snps" variable contains full list of 39 SNPs
+
 LDproxy_batch(snp = rcc.snps,
               pop = "CEU",
               token = Sys.getenv("LDLINK_TOKEN"),
               append = TRUE,
-              genome_build = "grch38"
+              genome_build = "grch38",
+              win_size = "10000"
              )
 
 # Note:  rs116895223 and rs11456122 are not in the 1000G reference
@@ -26,7 +28,7 @@ LDproxy_batch(snp = rcc.snps,
 
 # 2) Read in file created in step #1
 # Note: file had to be moved to data/data-out/ld/
-ld_snps <- read.table("data/data-out/ld/combined_query_snp_list_grch38.txt",
+ld_snps <- read.table("data/data-out/ld/combined_query_snp_list_win-10k_grch38.txt",
                       header = TRUE,
                       sep = "\t",
                       row.names = NULL)
