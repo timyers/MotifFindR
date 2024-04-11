@@ -7,3 +7,6 @@
 .DS_Store
 /doc/
 /Meta/
+
+# output data
+/data/data-out/
