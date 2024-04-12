@@ -186,11 +186,12 @@ plotMB(results = results, rsid = "rs6466948", effect = "strong", altAllele = "A"
 plotMB(results = results, rsid = "rs6466948", effect = "strong", altAllele = "G")
 plotMB(results = results, rsid = "rs6466948", effect = "weak", altAllele = "A")
 
-
+##########
 # Save 'results' or 'p_results' to an RDS native R data
 # format that will preserve complex data structure of
 # `GRanges` objects for reloading later.
-saveRDS(p_results, "data/data-out/ld/test_granges_object.rds")
+saveRDS(p_results, "data/data-out/ld/rcc_tfbs_encodemotif_high-ld_r2-0.9_win-10K_granges_object_pval_20240412_113759.rds")
+saveRDS(results, "data/data-out/ld/rcc_tfbs_encodemotif_high-ld_r2-0.9_win-10K_granges_object_20240412_113821.rds")
 
 
 ######### End Script #########
