@@ -49,5 +49,5 @@ rcc_snps_length <- length(rcc.snps)
 # Create a unique file name using the current date and time
 file_name <- paste0("data/data-out/ld/high_ld_snps_query", rcc_snps_length, "_", current_time, ".csv")
 
-# Write the dataframe "snp_sequence" to a CSV file called "file_name"
+# Write the dataframe to a CSV file called "file_name"
 write.csv(high_ld_snps, file = file_name, row.names = FALSE)
