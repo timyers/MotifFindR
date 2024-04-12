@@ -71,7 +71,7 @@ filter_motif_by_organisms <- function(motif_list, organisms) {
 # 1) Input rsID's
   # SNPs below are used for testing purpose. The full set of 39 SNPs
   # are automatically read into variable rcc.snps when project is loaded.
-  # rcc.snps <- c('rs6466948', 'rs6466949')
+rcc.snps <- c('rs6466948', 'rs6466949')
 
 # Or
 
@@ -186,6 +186,13 @@ plotMB(results = results, rsid = "rs6466948", effect = "strong", altAllele = "A"
 plotMB(results = results, rsid = "rs6466948", effect = "strong", altAllele = "G")
 plotMB(results = results, rsid = "rs6466948", effect = "weak", altAllele = "A")
 
+
+# Save 'results' or 'p_results' to an RDS native R data
+# format that will preserve complex data structure of
+# `GRanges` objects for reloading later.
+saveRDS(p_results, "data/data-out/ld/test_granges_object.rds")
+
+
 ######### End Script #########
 
 ##############################################
@@ -197,6 +204,7 @@ dt_p_results <- as.data.table(p_results)
 # 2)
 dt_rs6466949 <- as.data.table(rs6466949)
 
+
 # Save 'dt_p_results' to CSV file using the `fwrite` function
 # from the `data.table` package
 
@@ -204,6 +212,10 @@ fwrite(dt_p_results, "data/data-out/rcc_tfbs_encodemotif.csv")
 # or
 fwrite(dt_p_results, 
        "data/data-out/ld/rcc_tfbs_encodemotif_high-ld_r2-0.9_win-10K_20240411_155434.csv")
+# or
+fwrite(dt_p_results, 
+       "data/data-out/ld/short_snp_list_test.csv")
+
 
 ## Create publication ready table of 'dt_p_results' using 'gt' package
 
