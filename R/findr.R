@@ -73,7 +73,7 @@ filter_motif_by_organisms <- function(motif_list, organisms) {
   # are automatically read into variable rcc.snps when project is loaded.
 rcc.snps <- c('rs6466948', 'rs6466949')
 
-# Or
+# Or...
 
 # 1.1) Read in new set of rsID's in high LD with full set of 39 SNPs.
 # SNPs in high LD found using `LDlinkR::LDproxy_batch` with population CEU,
@@ -90,7 +90,20 @@ rcc.snps <- read.csv(file = "data/data-out/ld/high_ld_snps_query39_win-10k_20240
 # Create character vector
 rcc.snps <- as.character(rcc.snps$RS_Number)
 
-# Clean up - remove elements that are not rsID numbers
+# Or...
+# 1.2) Read in CSV file of rsIDs, one column named V1, of six
+# RCC SNPs
+rcc.snps <- read.csv(file = "/Users/myersta/Library/CloudStorage/OneDrive-NationalInstitutesofHealth/Rprojects_OneDrive/winter/MotifFindR/data-raw/rcc_snps_6.txt",
+                     header = FALSE
+                    )
+rcc.snps <- as.character(rcc.snps$V1)
+
+# Orrr...
+# 1.3) Use full list of 39 SNPs automatically read
+# into 'rcc.snps' when project is started.
+
+# Clean up - remove elements that are not rsID numbers,
+# if necessary.
 rcc.snps <- rcc.snps[grep("^rs[0-9]+$", rcc.snps)]
 
 
@@ -110,7 +123,7 @@ combined_mb <- c("HOCOMOCOv10", "HOCOMOCOv11-core-A", "HOCOMOCOv11-core-B", "HOC
                  "cisbp_1.02", "hPDI", "stamlab", "jolma2013", "UniPROBE"
                  )
 
-# 3.1.3) Filter 'MotifDb' by organism, 'Hsapiens'
+# 3.1.2.1) Filter 'MotifDb' by organism, 'Hsapiens'
 hsapiens_MotifDb <- filter_motif_by_organisms(MotifDb, "Hsapiens")
 
 # Find motifs predicted to be disrupted by rsID's stored in 'snp.mb',
@@ -126,6 +139,17 @@ results <- motifbreakR(snpList = snps.mb,
                        bkg = c(A=0.25, C=0.25, G=0.25, T=0.25),
                        BPPARAM = BiocParallel::SerialParam()
                       )
+# Or....
+# 3.1.3) Use 'hocomoco' database for CRISPRa/i project
+data("hocomoco")
+results <- motifbreakR(snpList = snps.mb, 
+                       filterp = TRUE,
+                       pwmList = hocomoco,
+                       threshold = 1e-4,
+                       method = "default",
+                       bkg = c(A=0.25, C=0.25, G=0.25, T=0.25),
+                       BPPARAM = BiocParallel::SerialParam()
+)
 
 # Subset results by rsID
 rs6466949 <- results[results$SNP_id == "rs6466949"]
@@ -192,7 +216,8 @@ plotMB(results = results, rsid = "rs6466948", effect = "weak", altAllele = "A")
 # `GRanges` objects for reloading later.
 saveRDS(p_results, "data/data-out/ld/rcc_tfbs_encodemotif_high-ld_r2-0.9_win-10K_granges_object_pval_20240412_113759.rds")
 saveRDS(results, "data/data-out/ld/rcc_tfbs_encodemotif_high-ld_r2-0.9_win-10K_granges_object_20240412_113821.rds")
-
+saveRDS(p_results, "data/data-out/rcc_6-snps_hocomoco_no-ld_granges_object_pval_20240711_140121.rds")
+saveRDS(p_results, "data/data-out/rcc_39-snps_hocomoco_no-ld_granges_object_pval_20240724_081716.rds")
 
 ######### End Script #########
 
@@ -215,7 +240,7 @@ fwrite(dt_p_results,
        "data/data-out/ld/rcc_tfbs_encodemotif_high-ld_r2-0.9_win-10K_20240411_155434.csv")
 # or
 fwrite(dt_p_results, 
-       "data/data-out/ld/short_snp_list_test.csv")
+       "data/data-out/rcc_39-snps_hocomoco_no-ld_granges_object_pval_20240724_081716.csv")
 
 
 ## Create publication ready table of 'dt_p_results' using 'gt' package
@@ -234,7 +259,8 @@ gt_table <- gt_table |>
   tab_header(
     title = md("**Renal Cell Carcinoma**"),
     # subtitle = "TF Motifs from multiple motif databases"
-    subtitle = "Known TF Motifs from Encode"
+    # subtitle = "Known TF Motifs from Encode"
+    subtitle = "TF Motifs from HOCOMOCO"
   )
 
 # Format Columns
@@ -261,6 +287,8 @@ gt_table <- gt_table |>
 gtsave(gt_table, "data/data-out/rcc_tfbs_encode.html")
 # 2)
 gtsave(gt_rs6466949_table, "rcc_rs6466949.html")
+# 3)
+gtsave(gt_table, "data/data-out/rcc_39-snps_hocomoco_no-ld_granges_object_pval_20240724_081716.html")
 
 
 ##############################################
