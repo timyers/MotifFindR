@@ -7,9 +7,11 @@
 
 library(GenomicRanges)
 library(motifbreakR)
+library(BSgenome.Hsapiens.UCSC.hg38)
+library(Cairo)
 
 # Read in the data generated in step 3 of `findr` script and
-# saved to an RDS file
+# saved to an RDS file.  The object will be "GRanges".
 gr_results <- readRDS("data/data-out/ld/rcc_tfbs_encodemotif_high-ld_r2-0.9_win-10K_granges_object_pval_20240412_113759.rds")
 
 
