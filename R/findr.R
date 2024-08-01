@@ -98,9 +98,16 @@ rcc.snps <- read.csv(file = "/Users/myersta/Library/CloudStorage/OneDrive-Nation
                     )
 rcc.snps <- as.character(rcc.snps$V1)
 
-# Orrr...
+# Orr...
 # 1.3) Use full list of 39 SNPs automatically read
 # into 'rcc.snps' when project is started.
+
+# Orrr....
+# 1.3 Use subset 32 from full list of SNPs
+rcc.snps <- read.csv(file = "data-raw/TW_32-SNPs_List.txt",
+                     header = FALSE
+)
+rcc.snps <- as.character(rcc.snps$V1)
 
 # Clean up - remove elements that are not rsID numbers,
 # if necessary.
@@ -218,6 +225,7 @@ saveRDS(p_results, "data/data-out/ld/rcc_tfbs_encodemotif_high-ld_r2-0.9_win-10K
 saveRDS(results, "data/data-out/ld/rcc_tfbs_encodemotif_high-ld_r2-0.9_win-10K_granges_object_20240412_113821.rds")
 saveRDS(p_results, "data/data-out/rcc_6-snps_hocomoco_no-ld_granges_object_pval_20240711_140121.rds")
 saveRDS(p_results, "data/data-out/rcc_39-snps_hocomoco_no-ld_granges_object_pval_20240724_081716.rds")
+saveRDS(p_results, "data/data-out/rcc_32-snps_hocomoco_no-ld_granges_object_pval_20240801_111804.rds")
 
 ######### End Script #########
 
@@ -241,6 +249,9 @@ fwrite(dt_p_results,
 # or
 fwrite(dt_p_results, 
        "data/data-out/rcc_39-snps_hocomoco_no-ld_granges_object_pval_20240724_081716.csv")
+# or
+fwrite(dt_p_results, 
+       "data/data-out/rcc_32-snps_hocomoco_no-ld_granges_object_pval_20240801_111804.csv")
 
 
 ## Create publication ready table of 'dt_p_results' using 'gt' package
