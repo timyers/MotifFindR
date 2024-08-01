@@ -1526,7 +1526,7 @@
     },
     "foreign": {
       "Package": "foreign",
-      "Version": "0.8-86",
+      "Version": "0.8-87",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -1535,7 +1535,7 @@
         "stats",
         "utils"
       ],
-      "Hash": "550170303dbb19d07b2bcc288068e7dc"
+      "Hash": "81fc09bdeab0077a73927ed1243404b6"
     },
     "formatR": {
       "Package": "formatR",
@@ -2085,7 +2085,7 @@
     },
     "nlme": {
       "Package": "nlme",
-      "Version": "3.1-164",
+      "Version": "3.1-165",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -2095,7 +2095,7 @@
         "stats",
         "utils"
       ],
-      "Hash": "a623a2239e642806158bc4dc3f51565d"
+      "Hash": "2769a88be217841b1f33ed469675c3cc"
     },
     "nnet": {
       "Package": "nnet",
